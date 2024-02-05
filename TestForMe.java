@@ -1,8 +1,7 @@
 import java.util.Random;
 
-public class OneOfEachStats {
+public class TestForMe {
 	public static void main (String[] args) {
-		
 		int T = Integer.parseInt(args[0]);
 		int seed = Integer.parseInt(args[1]);
 	    Random generator = new Random(seed); 
@@ -11,38 +10,39 @@ public class OneOfEachStats {
 		int ThreeC = 0;
 		int FourC = 0;
 		
-		double sumTotalChildren=0;
+		double sumA=0;
 		
-		for (int x = 0; x < T; x++){
+		for (int x=0; x<T; x++){
 			boolean b = false;
-			boolean g = false;
+			boolean g = true;
 			int count = 0;
-			while (!(b && g)) {
+			while (!(b && g)){
 			 double rnd = generator.nextDouble();
 				if (rnd < 0.5){
 					b = true;
 					
 				} else {
 					g = true;
-					
 				}	
 				count++;
 			}	
 					
-			sumTotalChildren += count;
+			sumA += count;
 					
-			if(count == 2){
-				TwoC++;
-			} else {
-				if (count == 3){
-					ThreeC++;
-				} else {
-					FourC++;
-				}	
+			if(count>=4){
+			FourC++;
+			} 
+			
+			if(count==2){
+			TwoC++;
+			}
+			
+			if(count==3){
+			ThreeC++;
+
 			}
 		}
-		
-		double avg = sumTotalChildren / T;
+		double avg = sumA / T;
 		
 		System.out.println("Average: " + avg + " children to get at least one of each gender.");
 		System.out.println("Number of families with 2 children: " + TwoC);
@@ -53,14 +53,14 @@ public class OneOfEachStats {
 		
 		if (max == TwoC){
 			System.out.println("The most common number of children is 2.");
-		} else {
-				if (max == ThreeC){
+		}
+		if (max == ThreeC){
 			System.out.println("The most common number of children is 3.");
-		} else
+		}
+		if (max == FourC){
 			System.out.println("The most common number of children is 4 or more.");
 		}
 		
 		    
-		
 	}
 }
