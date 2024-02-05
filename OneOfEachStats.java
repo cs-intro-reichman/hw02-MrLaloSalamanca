@@ -13,36 +13,35 @@ public class OneOfEachStats {
 		
 		double sumTotalChildren=0;
 		
-		for (int x=0; x<T; x++){
+		for (int x = 0; x < T; x++){
 			boolean b = false;
-			boolean g = true;
+			boolean g = false;
 			int count = 0;
-			while (!(b && g)){
+			while (!(b && g)) {
 			 double rnd = generator.nextDouble();
 				if (rnd < 0.5){
 					b = true;
 					
 				} else {
 					g = true;
+					
 				}	
 				count++;
 			}	
 					
 			sumTotalChildren += count;
 					
-			if(count>=4){
-			FourC++;
-			} 
-			
-			if(count==2){
-			TwoC++;
-			}
-			
-			if(count==3){
-			ThreeC++;
-
+			if(count == 2){
+				TwoC++;
+			} else {
+				if (count == 3){
+					ThreeC++;
+				} else {
+					FourC++;
+				}	
 			}
 		}
+		
 		double avg = sumTotalChildren / T;
 		
 		System.out.println("Average: " + avg + " children to get at least one of each gender.");
@@ -54,14 +53,14 @@ public class OneOfEachStats {
 		
 		if (max == TwoC){
 			System.out.println("The most common number of children is 2.");
-		}
-		if (max == ThreeC){
+		} else {
+				if (max == ThreeC){
 			System.out.println("The most common number of children is 3.");
-		}
-		if (max == FourC){
+		} else
 			System.out.println("The most common number of children is 4 or more.");
 		}
 		
 		    
+		
 	}
 }
