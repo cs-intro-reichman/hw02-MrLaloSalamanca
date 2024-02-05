@@ -46,10 +46,12 @@ public class OneOfEachStats {
 			}
 		}
 		int max = Math.max(Math.max(TwoC,ThreeC),FourC);
+		
 		System.out.println("Average: " + (Double)sumA/T + " children to get at least one of each gender.");
 		System.out.println("Number of families with 2 children: " + TwoC);
 		System.out.println("Number of families with 3 children: " + ThreeC);
 		System.out.println("Number of families with 4 or more children: " + FourC);
+		
 		if (max == TwoC){
 			System.out.println("The most common number of children is 2.");
 		}
