@@ -1,8 +1,7 @@
 import java.util.Random;
 
-public class OneOfEachStats {
+public class TestForMe {
 	public static void main (String[] args) {
-		
 		int T = Integer.parseInt(args[0]);
 		int seed = Integer.parseInt(args[1]);
 	    Random generator = new Random(seed); 
@@ -11,7 +10,7 @@ public class OneOfEachStats {
 		int ThreeC = 0;
 		int FourC = 0;
 		
-		double sumTotalChildren=0;
+		double sumA=0;
 		
 		for (int x=0; x<T; x++){
 			boolean b = false;
@@ -28,7 +27,7 @@ public class OneOfEachStats {
 				count++;
 			}	
 					
-			sumTotalChildren += count;
+			sumA += count;
 					
 			if(count>=4){
 			FourC++;
@@ -43,7 +42,7 @@ public class OneOfEachStats {
 
 			}
 		}
-		double avg = sumTotalChildren / T;
+		double avg = sumA / T;
 		
 		System.out.println("Average: " + avg + " children to get at least one of each gender.");
 		System.out.println("Number of families with 2 children: " + TwoC);
